@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+</head>
+<body>
+
+
+
+  <h2>Edit Task</h2>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <div>
+      <label for="id_name">Task Name:</label>
+      {{ form.name }}
+    </div>
+
+    <div>
+      <label for="id_due_date">Due Date & Time:</label>
+      {{ form.due_date }}
+    </div>
+
+    <div>
+      <label for="id_assigned_to">Assign to:</label>
+      {{ form.assigned_to }}
+    </div>
+
+    <div>
+      <label for="id_status">Status:</label>
+      {{ form.status }}
+    </div>
+
+    <button type="submit">Save Changes</button>
+  </form>
+
+  <a href="{% url 'task_dashboard' %}">Back to Dashboard</a>
+
+</body>
+</html>

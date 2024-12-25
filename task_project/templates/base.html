@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'task_dashboard' %}">Dashboard</a></li><br><br>
+                <li><a href="{% url 'add_task' %}">Add Task</a></li><br><br>
+                <li><a href="{% url 'logout' %}">Logout</a></li><br><br>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        {% block content %}
+        <!-- Content from child templates will be inserted here -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Task Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

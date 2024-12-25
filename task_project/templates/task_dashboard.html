@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- templates/dashboard.html -->
+
+{% extends "base.html" %}<br><br>
+{% block content %}<br><br>
+  <h2>Task Dashboard</h2>
+  <table border="10px">
+    <tr>
+      <th>Task Name</th>
+      <th>Due Date</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+    </tr>
+    {% for task in tasks %}
+      <tr>
+        <td>{{ task.name }}</td>
+        <td>{{ task.due_date }}</td>
+        <td>{{ task.assigned_to.username }}</td>
+        <td>{{ task.status }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4">No tasks found.</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="{% url 'add_task' %}">Add New Task</a>
+{% endblock %}
+</body>
+</html>
+
+

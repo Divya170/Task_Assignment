@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+</head>
+<body>
+    <h2>Task Dashboard</h2>
+    <table>
+      <tr>
+        <th>Task Name</th>
+        <th>Due Date</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+      </tr>
+        <tr>
+          <td>{{ task.name }}</td>
+          <td>{{ task.due_date }}</td>
+          <td>{{ task.assigned_to.username }}</td>
+          <td>{{ task.status }}</td>
+        </tr>
+        <tr>
+          <td colspan="4">No tasks found.</td>
+        </tr>
+    </table>
+    <h2>Add New Task</h2>
+
+<form action="" method="post">   
+    {% csrf_token %}
+    <div>
+      <label for="id_name">Task Name:</label>
+      {{ form.name }}<br><br>
+    </div>
+
+    <div>
+      <label for="id_due_date">Due Date & Time:</label>
+      {{ form.due_date }}<br><br>
+
+    </div>
+
+    <div>
+      <label for="id_assigned_to">Assign to:</label>
+      {{ form.assigned_to }}<br><br>
+    </div>
+
+    <div>
+      <label for="id_status">Status:</label>
+      {{ form.status }}<br><br>
+    </div>
+
+    <button type="submit">Save Task</button><br><br>
+  </form>
+    <a href="{% url 'add_task' %}">Add New Task</a><br><br>
+    <a href="{% url 'task_dashboard' %}">Back to Dashboard</a>
+
+
+</body>
+</html>
